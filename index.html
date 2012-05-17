@@ -31,12 +31,14 @@
 	<script>window.jQuery || document.write("<script src='js/libs/jquery.min.js'>\x3C/script>")</script>
 	<script src="js/jRespond.js"></script>
 	<script>
-		jRespond.addFunc('hello');
-		jRespond.addFunc('world');
+		var jRes = jRespond([{'label': 'handheld','enter': 0,'exit': 767},{'label': 'tablet','enter': 768,'exit': 979},{'label': 'laptop','enter': 980,'exit': 1199},{'label':'desktop','enter': 1200,'exit': 10000}]);
+		
+		jRes.addFunc('hello');
+		jRes.addFunc('world');
 		
 		// add anther one later
 		setTimeout(function() {
-			jRespond.addFunc('!');
+			jRes.addFunc('!');
 		}, 1000);
 		
 		// make console.log safe to use
