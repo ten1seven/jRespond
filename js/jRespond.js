@@ -5,13 +5,15 @@
 */
 (function(win,doc,undefine) {
 	
-	// let's be serious here...
 	'use strict';
 	
 	win.jRespond = function(breakpoints) {
 		
 		// array for registered functions
 		var mediaListeners = [],
+			
+			// array that corresponds to mediaListeners that holds the cuurrent on/off state
+			mediaInit = [],
 		
 			// array of media query breakpoints; adjust as needed
 			mediaBreakpoints = breakpoints,
@@ -29,11 +31,20 @@
 		// send media to the mediaListeners array
 		var addFunction = function(elm) {
 			
+			var brkpt = elm['breakpoint'],
+				entr = elm['enter'];
+			
 			// add function to stack
 			mediaListeners.push(elm);
 			
-			if (testForCurr(elm['breakpoint'])) {
-				elm['enter'].call();
+			// add corresponding entry to mediaInit
+			mediaInit.push(false);
+			
+			if (testForCurr(brkpt) && entr) {
+				entr.call();
+				
+				// add corresponding entry to mediaInit as on
+				mediaInit[(mediaListeners.length - 1)] = true;
 			}
 		};
 		
@@ -41,8 +52,18 @@
 		var cycleThrough = function() {
 			
 			for (var i = 0; i < mediaListeners.length; i++) {
-				if (testForCurr(mediaListeners[i]['breakpoint'])) {
-					mediaListeners[i]['enter'].call();
+				var brkpt = mediaListeners[i]['breakpoint'],
+					entr = mediaListeners[i]['enter'],
+					exit = mediaListeners[i]['exit'];
+				
+				if (testForCurr(brkpt) && entr && !mediaInit[i]) {
+					entr.call();
+					mediaInit[i] = true;
+				} else if (testForCurr(brkpt) && entr && mediaInit[i]) {
+					
+				} else if (exit && mediaInit[i]) {
+					exit.call();
+					mediaInit[i] = false;
 				}
 			}
 		};
@@ -58,10 +79,6 @@
 					
 					// run the loop
 					cycleThrough();
-					
-					// print out results
-					console.log('current breakpoint: ' + curr);
-					$('#test').text('current breakpoint: ' + curr);
 				}
 			}
 		};
@@ -85,9 +102,6 @@
 			
 			// get current width
 			var w = $(window).width();
-			
-			// check if the current width has changed
-			console.log('w: ' + w + ' // resizeW: ' + resizeW + ' // resizeTmrSpd: ' + resizeTmrSpd);
 			
 			// if there is a change speed up the timer and fire the returnBreakpoint function
 			if (w !== resizeW) {

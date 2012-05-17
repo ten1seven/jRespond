@@ -54,15 +54,50 @@
 			}
 		]);
 		
-		// push function
+		// usage
 		jRes.addFunc({
-			//breakpoint: ['laptop','tablet'],
-			breakpoint: 'laptop',
+			breakpoint: 'desktop',
 			enter: function() {
-				console.log('run this for the laptop/tablet breakpoint');
+				console.log('>>> run this for the desktop breakpoint <<<');
+				$('#test').text('current breakpoint: desktop');
 			},
 			exit: function() {
-				console.log('destroy this when exiting the laptop/tablet breakpoint');
+				console.log('<<< destroy this when exiting the desktop breakpoint >>>');
+			}
+		});
+		
+		jRes.addFunc({
+			breakpoint: ['laptop','tablet'],
+			enter: function() {
+				console.log('>>> run this for the laptop/tablet breakpoint <<<');
+			},
+			exit: function() {
+				console.log('<<< destroy this when exiting the laptop/tablet breakpoint >>>');
+			}
+		});
+		
+		jRes.addFunc({
+			breakpoint: 'laptop',
+			enter: function() {
+				$('#test').text('current breakpoint: laptop');
+			}
+		});
+		
+		jRes.addFunc({
+			breakpoint: 'tablet',
+			enter: function() {
+				$('#test').text('current breakpoint: tablet');
+			}
+		});
+		
+		jRes.addFunc({
+			breakpoint: 'handheld',
+			enter: function() {
+				console.log('>>> run this for the handheld breakpoint <<<');
+				$('#test').text('current breakpoint: handheld');
+			},
+			exit: function() {
+				console.log('<<< destroy this when exiting the handheld breakpoint >>>');
 			}
 		});
 	</script>
