@@ -29,20 +29,42 @@
 	<!-- Javascript -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write("<script src='js/libs/jquery.min.js'>\x3C/script>")</script>
+	<script src="js/util.js"></script>
 	<script src="js/jRespond.js"></script>
 	<script>
-		var jRes = jRespond([{'label': 'handheld','enter': 0,'exit': 767},{'label': 'tablet','enter': 768,'exit': 979},{'label': 'laptop','enter': 980,'exit': 1199},{'label':'desktop','enter': 1200,'exit': 10000}]);
 		
-		jRes.addFunc('hello');
-		jRes.addFunc('world');
+		// call jRespond and add breakpoints
+		var jRes = jRespond([
+			{
+				label: 'handheld',
+				enter: 0,
+				exit: 767
+			},{
+				label: 'tablet',
+				enter: 768,
+				exit: 979
+			},{
+				label: 'laptop',
+				enter: 980,
+				exit: 1199
+			},{
+				label: 'desktop',
+				enter: 1200,
+				exit: 10000
+			}
+		]);
 		
-		// add anther one later
-		setTimeout(function() {
-			jRes.addFunc('!');
-		}, 1000);
-		
-		// make console.log safe to use
-		window.console||(console={log:function(){}});
+		// push function
+		jRes.addFunc({
+			//breakpoint: ['laptop','tablet'],
+			breakpoint: 'laptop',
+			enter: function() {
+				console.log('run this for the laptop/tablet breakpoint');
+			},
+			exit: function() {
+				console.log('destroy this when exiting the laptop/tablet breakpoint');
+			}
+		});
 	</script>
 
 </body>

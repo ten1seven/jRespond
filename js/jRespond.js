@@ -26,16 +26,24 @@
 			resizeTmrSlow = 500,
 			resizeTmrSpd = resizeTmrSlow;
 		
-		
 		// send media to the mediaListeners array
 		var addFunction = function(elm) {
 			
 			// add function to stack
 			mediaListeners.push(elm);
 			
-			// check to see if it needs to be fired
+			if (testForCurr(elm['breakpoint'])) {
+				elm['enter'].call();
+			}
+		};
+		
+		// loops through all registered functions and determines if they should be fired
+		var cycleThrough = function() {
+			
 			for (var i = 0; i < mediaListeners.length; i++) {
-				//console.log(mediaListeners[i]);
+				if (testForCurr(mediaListeners[i]['breakpoint'])) {
+					mediaListeners[i]['enter'].call();
+				}
 			}
 		};
 		
@@ -45,10 +53,29 @@
 			for (var i = 0; i < mediaBreakpoints.length; i++) {
 				if (width >= mediaBreakpoints[i]['enter'] && width <= mediaBreakpoints[i]['exit'] && curr !== mediaBreakpoints[i]['label']) {
 					
-					console.log(mediaBreakpoints[i]['label']);
-					$('#test').text(mediaBreakpoints[i]['label']);
-					
+					// update curr variable
 					curr = mediaBreakpoints[i]['label'];
+					
+					// run the loop
+					cycleThrough();
+					
+					// print out results
+					console.log('current breakpoint: ' + curr);
+					$('#test').text('current breakpoint: ' + curr);
+				}
+			}
+		};
+		
+		// takes the breakpoint/s arguement from an object and tests it against the current state
+		var testForCurr = function(elm) {
+			
+			if (typeof elm === 'object') {
+				if (elm.join().indexOf(curr) >= 0) {
+					return true;
+				}
+			} else if (typeof elm === 'string') {
+				if (curr === elm) {
+					return true;
 				}
 			}
 		};
