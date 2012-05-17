@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	
+	<!-- META -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
+	<!-- Force latest IE rendering engine (even in intranet) & Chrome Frame -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<!-- tell mobile browsers to scale -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<meta name="description" content="">
+	
+	<title>jRespond</title>
+	
+	<style>
+		
+	</style>
+</head>
+<body>
+
+	<p id="test"></p>
+
+	<!-- Javascript -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write("<script src='js/libs/jquery.min.js'>\x3C/script>")</script>
+	<script src="js/jRespond.js"></script>
+	<script>
+		jRespond.addFunc('hello');
+		jRespond.addFunc('world');
+		
+		// add anther one later
+		setTimeout(function() {
+			jRespond.addFunc('!');
+		}, 1000);
+		
+		// make console.log safe to use
+		window.console||(console={log:function(){}});
+	</script>
+
+</body>
+</html>
