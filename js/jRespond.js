@@ -43,7 +43,7 @@
 			if (testForCurr(brkpt) && entr) {
 				entr.call();
 				
-				// add corresponding entry to mediaInit as on
+				// update corresponding entry to mediaInit to true
 				mediaInit[(mediaListeners.length - 1)] = true;
 			}
 		};
@@ -60,7 +60,7 @@
 					entr.call();
 					mediaInit[i] = true;
 				} else if (testForCurr(brkpt) && entr && mediaInit[i]) {
-					
+					// don't do anything
 				} else if (exit && mediaInit[i]) {
 					exit.call();
 					mediaInit[i] = false;
