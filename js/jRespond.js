@@ -53,16 +53,18 @@
 			
 			for (var i = 0; i < mediaListeners.length; i++) {
 				var brkpt = mediaListeners[i]['breakpoint'],
-					entr = mediaListeners[i]['enter'],
-					exit = mediaListeners[i]['exit'];
+					entr = mediaListeners[i]['enter'] || undefined,
+					exit = mediaListeners[i]['exit'] || undefined;
 				
 				if (testForCurr(brkpt) && entr && !mediaInit[i]) {
 					entr.call();
 					mediaInit[i] = true;
 				} else if (testForCurr(brkpt) && entr && mediaInit[i]) {
-					// don't do anything
+					mediaInit[i] = true;
 				} else if (exit && mediaInit[i]) {
 					exit.call();
+					mediaInit[i] = false;
+				} else if (mediaInit[i]) {
 					mediaInit[i] = false;
 				}
 			}
