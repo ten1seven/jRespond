@@ -77,22 +77,35 @@
 		// loops through all registered functions and determines if they should be fired
 		var cycleThrough = function() {
 			
+			var enterArray = [],
+				exitArray = [];
+			
 			for (var i = 0; i < mediaListeners.length; i++) {
 				var brkpt = mediaListeners[i]['breakpoint'],
 					entr = mediaListeners[i]['enter'] || undefined,
 					exit = mediaListeners[i]['exit'] || undefined;
 				
 				if (testForCurr(brkpt) && entr && !mediaInit[i]) {
-					entr.call();
+					enterArray.push(entr);
 					mediaInit[i] = true;
 				} else if (testForCurr(brkpt) && entr && mediaInit[i]) {
 					mediaInit[i] = true;
 				} else if (exit && mediaInit[i]) {
-					exit.call();
+					exitArray.push(exit);
 					mediaInit[i] = false;
 				} else if (mediaInit[i]) {
 					mediaInit[i] = false;
 				}
+			}
+			
+			// loop through exit functions to call
+			for (var i = 0; i < exitArray.length; i++) {
+				exitArray[i].call();
+			}
+			
+			// then loop through enter functions to call
+			for (var i = 0; i < enterArray.length; i++) {
+				enterArray[i].call();
 			}
 		};
 		

@@ -21,7 +21,7 @@
 </head>
 <body>
 
-	<p id="test"></p>
+	<p id="output"></p>
 
 	<!-- Javascript -->
 	<script src="js/util.js"></script>
@@ -50,13 +50,13 @@
 		]);
 		
 		// usage
-		var myText = document.getElementById('test');
+		var outputStr = document.getElementById('output');
 		
 		jRes.addFunc({
 			breakpoint: 'desktop',
 			enter: function() {
 				console.log('>>> run this for the desktop breakpoint <<<');
-				myText.innerHTML = 'current breakpoint: desktop';
+				outputStr.innerHTML = 'current breakpoint: desktop';
 			},
 			exit: function() {
 				console.log('<<< destroy this when exiting the desktop breakpoint >>>');
@@ -76,14 +76,14 @@
 		jRes.addFunc({
 			breakpoint: 'laptop',
 			enter: function() {
-				myText.innerHTML = 'current breakpoint: laptop';
+				outputStr.innerHTML = 'current breakpoint: laptop';
 			}
 		});
 		
 		jRes.addFunc({
 			breakpoint: 'tablet',
 			enter: function() {
-				myText.innerHTML = 'current breakpoint: tablet';
+				outputStr.innerHTML = 'current breakpoint: tablet';
 			}
 		});
 		
@@ -91,7 +91,7 @@
 			breakpoint: 'handheld',
 			enter: function() {
 				console.log('>>> run this for the handheld breakpoint <<<');
-				myText.innerHTML = 'current breakpoint: handheld';
+				outputStr.innerHTML = 'current breakpoint: handheld';
 			},
 			exit: function() {
 				console.log('<<< destroy this when exiting the handheld breakpoint >>>');
