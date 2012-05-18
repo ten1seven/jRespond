@@ -24,8 +24,6 @@
 	<p id="test"></p>
 
 	<!-- Javascript -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write("<script src='js/libs/jquery.min.js'>\x3C/script>")</script>
 	<script src="js/util.js"></script>
 	<script src="js/jRespond.js"></script>
 	<script>
@@ -52,11 +50,13 @@
 		]);
 		
 		// usage
+		var myText = document.getElementById('test');
+		
 		jRes.addFunc({
 			breakpoint: 'desktop',
 			enter: function() {
 				console.log('>>> run this for the desktop breakpoint <<<');
-				$('#test').text('current breakpoint: desktop');
+				myText.innerHTML = 'current breakpoint: desktop';
 			},
 			exit: function() {
 				console.log('<<< destroy this when exiting the desktop breakpoint >>>');
@@ -76,14 +76,14 @@
 		jRes.addFunc({
 			breakpoint: 'laptop',
 			enter: function() {
-				$('#test').text('current breakpoint: laptop');
+				myText.innerHTML = 'current breakpoint: laptop';
 			}
 		});
 		
 		jRes.addFunc({
 			breakpoint: 'tablet',
 			enter: function() {
-				$('#test').text('current breakpoint: tablet');
+				myText.innerHTML = 'current breakpoint: tablet';
 			}
 		});
 		
@@ -91,7 +91,7 @@
 			breakpoint: 'handheld',
 			enter: function() {
 				console.log('>>> run this for the handheld breakpoint <<<');
-				$('#test').text('current breakpoint: handheld');
+				myText.innerHTML = 'current breakpoint: handheld';
 			},
 			exit: function() {
 				console.log('<<< destroy this when exiting the handheld breakpoint >>>');

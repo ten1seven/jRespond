@@ -28,6 +28,32 @@
 			resizeTmrSlow = 500,
 			resizeTmrSpd = resizeTmrSlow;
 		
+		// cross browser window width
+		var winWidth = function() {
+			
+			var w = 0;
+			
+			//IE
+			if (!window.innerWidth) {
+				
+				 if (!(document.documentElement.clientWidth == 0)) {
+					  
+					  //strict mode
+					  w = document.documentElement.clientWidth;
+				 } else{
+					  
+					  //quirks mode
+					  w = document.body.clientWidth;
+				 }
+			} else {
+				 
+				 //w3c
+				 w = window.innerWidth;
+			}
+			
+			return w;
+		};
+		
 		// send media to the mediaListeners array
 		var addFunction = function(elm) {
 			
@@ -103,7 +129,7 @@
 		var checkResize = function() {
 			
 			// get current width
-			var w = $(window).width();
+			var w = winWidth();
 			
 			// if there is a change speed up the timer and fire the returnBreakpoint function
 			if (w !== resizeW) {
