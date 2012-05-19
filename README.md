@@ -85,4 +85,4 @@ None.
 
 ##Credits
 
-Thanks to <a href="http://seesparkbox.com/foundry/author/rob_tarr">Rob Tarr</a> for inspiting the function registration pattern and <a href="http://markupboy.com/">Markup Boy</a> for helping me with my JavaScript failings.
+Thanks to <a href="http://seesparkbox.com/foundry/author/rob_tarr">Rob Tarr</a> for inspiring the function registration pattern and <a href="http://markupboy.com/">Markup Boy</a> for helping me with my JavaScript failings.
