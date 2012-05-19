@@ -66,10 +66,10 @@
 			// add corresponding entry to mediaInit
 			mediaInit.push(false);
 			
-			if (testForCurr(brkpt) && entr) {
-				entr.call();
-				
-				// update corresponding entry to mediaInit to true
+			if (testForCurr(brkpt)) {
+				if (entr !== undefined) {
+					entr.call();
+				}
 				mediaInit[(mediaListeners.length - 1)] = true;
 			}
 		};
@@ -85,15 +85,15 @@
 					entr = mediaListeners[i]['enter'] || undefined,
 					exit = mediaListeners[i]['exit'] || undefined;
 				
-				if (testForCurr(brkpt) && entr && !mediaInit[i]) {
-					enterArray.push(entr);
+				if (testForCurr(brkpt)) {
+					if (entr !== undefined && !mediaInit[i]) {
+						enterArray.push(entr);
+					}
 					mediaInit[i] = true;
-				} else if (testForCurr(brkpt) && entr && mediaInit[i]) {
-					mediaInit[i] = true;
-				} else if (exit && mediaInit[i]) {
-					exitArray.push(exit);
-					mediaInit[i] = false;
-				} else if (mediaInit[i]) {
+				} else {
+					if (exit !== undefined && mediaInit[i]) {
+						exitArray.push(exit);
+					}
 					mediaInit[i] = false;
 				}
 			}
