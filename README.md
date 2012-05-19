@@ -73,7 +73,7 @@ The breakpoint parameter is required but the enter and exit parameters are optio
 
 ##Performance
 
-jRespond is only 1.2kb minified and only polls for the browser width every 500ms. If it detects a change the polling speed is increased to 100ms only until the browser width stops changing.
+jRespond is 1.3kb minified and only polls for the browser width every 500ms. If it detects a change the polling speed is increased to 100ms only until the browser width stops changing.
 
 ##Browser Support
 
