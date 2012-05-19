@@ -20,19 +20,19 @@ After including jRespond.min.js in your project, call jRespond and define media 
 // call jRespond and add breakpoints
 var jRes = jRespond([
 	{
-		breakpoint: 'handheld',
+		label: 'handheld',
 		enter: 0,
 		exit: 768
 	},{
-		breakpoint: 'tablet',
+		label: 'tablet',
 		enter: 768,
 		exit: 980
 	},{
-		breakpoint: 'laptop',
+		label: 'laptop',
 		enter: 980,
 		exit: 1200
 	},{
-		breakpoint: 'desktop',
+		label: 'desktop',
 		enter: 1200,
 		exit: 10000
 	}
