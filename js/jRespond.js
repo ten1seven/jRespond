@@ -114,10 +114,10 @@
 		var returnBreakpoint = function(width) {
 			
 			for (var i = 0; i < mediaBreakpoints.length; i++) {
-				if (width >= mediaBreakpoints[i]['enter'] && width <= mediaBreakpoints[i]['exit'] && curr !== mediaBreakpoints[i]['label']) {
+				if (width >= mediaBreakpoints[i]['enter'] && width <= mediaBreakpoints[i]['exit'] && curr !== mediaBreakpoints[i]['breakpoint']) {
 					
 					// update curr variable
-					curr = mediaBreakpoints[i]['label'];
+					curr = mediaBreakpoints[i]['breakpoint'];
 					
 					// run the loop
 					cycleThrough();
