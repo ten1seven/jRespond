@@ -37,7 +37,7 @@ var jRes = jRespond([
 ]);
 ```
 
-Once running, functions can be registered with jRespond along with a breakpoint.
+Once running, functions can be registered with jRespond along with a breakpoint:
 
 ``` javascript
 jRes.addFunc({
@@ -51,7 +51,7 @@ jRes.addFunc({
 });
 ```
 
-Or an array of breakpoints.
+Or an array of breakpoints:
 
 ``` javascript
 jRes.addFunc({
@@ -76,3 +76,7 @@ IE 7+, Safari 5+, Firefox 3+, Chrome 1+
 ##Dependencies
 
 None.
+
+##Credits
+
+Thanks to <a href="http://seesparkbox.com/foundry/author/rob_tarr">Rob Tarr</a> for inspiting the function registration pattern and <a href="http://markupboy.com/">Markup Boy</a> for helping me with my JavaScript failings.
