@@ -42,6 +42,7 @@ var jRes = jRespond([
 Once running, functions can be registered with jRespond along with a desired breakpoint:
 
 ``` javascript
+// register enter and exit functions for a single breakpoint
 jRes.addFunc({
 	breakpoint: 'desktop',
 	enter: function() {
@@ -56,6 +57,7 @@ jRes.addFunc({
 Or an array of breakpoints:
 
 ``` javascript
+// register enter and exit functions for multiple breakpoints
 jRes.addFunc({
 	breakpoint: ['desktop','laptop'],
 	enter: function() {
