@@ -15,7 +15,7 @@ If your project only needs to support modern browsers I highly recommend checkin
 jRespond holds a list of user-defined functions that are either fired or destroyed based on the detected media breakpoint. Because jRespond was built to be browser agnostic, it does NOT sniff for media queries in the stylesheets. All media breakpoints need to be defined when calling jRespond.
 
 <pre>
-	&lt;script src="js/jRespond.js"&gt;&lt;/script&gt;
+	&lt;script src="jRespond.min.js"&gt;&lt;/script&gt;
 	&lt;script>
 		// call jRespond and add breakpoints
 		var jRes = jRespond([
@@ -42,17 +42,17 @@ jRespond holds a list of user-defined functions that are either fired or destroy
 
 Once running, functions can be registered with jRespond along with a breakpoint.
 
-<pre>
-	jRes.addFunc({
-		breakpoint: 'desktop',
-		enter: function() {
-			myInitFunc();
-		},
-		exit: function() {
-			myUnInitFunc();
-		}
-	});
-</pre>
+``` javascript
+jRes.addFunc({
+	breakpoint: 'desktop',
+	enter: function() {
+		myInitFunc();
+	},
+	exit: function() {
+		myUnInitFunc();
+	}
+});
+```
 
 Or an array of breakpoints.
 
