@@ -58,7 +58,7 @@
 		var addFunction = function(elm) {
 			
 			var brkpt = elm['breakpoint'],
-				entr = elm['enter'];
+				entr = elm['enter'] || undefined;
 			
 			// add function to stack
 			mediaListeners.push(elm);
