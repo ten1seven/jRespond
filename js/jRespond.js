@@ -148,15 +148,15 @@
 			// if there is a change speed up the timer and fire the returnBreakpoint function
 			if (w !== resizeW) {
 				resizeTmrSpd = resizeTmrFast;
-				resizeW = w;
 				
 				returnBreakpoint(w);
 			
 			// otherwise keep on keepin' on
 			} else {
 				resizeTmrSpd = resizeTmrSlow;
-				resizeW = w;
 			}
+			
+			resizeW = w;
 			
 			// calls itself on a setTimeout
 			setTimeout(checkResize, resizeTmrSpd);
