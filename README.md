@@ -77,7 +77,7 @@ jRespond is 1.3kb minified and only polls for the browser width every 500ms. If 
 
 ##Browser Support
 
-IE 7+, Safari 5+, Firefox 3+, Chrome 1+
+IE 6+, Safari 5+, Firefox 3+, Chrome 1+
 
 ##Dependencies
 
