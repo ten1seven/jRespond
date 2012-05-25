@@ -34,21 +34,21 @@
 			
 			var w = 0;
 			
-			//IE
+			// IE
 			if (!window.innerWidth) {
 				
-				 if (!(document.documentElement.clientWidth == 0)) {
+				 if (!(document.documentElement.clientWidth === 0)) {
 					  
-					  //strict mode
+					  // strict mode
 					  w = document.documentElement.clientWidth;
-				 } else{
+				 } else {
 					  
-					  //quirks mode
+					  // quirks mode
 					  w = document.body.clientWidth;
 				 }
 			} else {
 				 
-				 //w3c
+				 // w3c
 				 w = window.innerWidth;
 			}
 			
