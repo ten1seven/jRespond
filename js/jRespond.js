@@ -11,23 +11,23 @@
 	win.jRespond = function(breakpoints) {
 		
 		// array for registered functions
-		var mediaListeners = [],
-			
-			// array that corresponds to mediaListeners that holds the cuurrent on/off state
-			mediaInit = [],
+		var mediaListeners = [];
 		
-			// array of media query breakpoints; adjust as needed
-			mediaBreakpoints = breakpoints,
-			
-			// store the current breakpoint
-			curr = '',
-			
-			// window resize event timer stuff
-			resizeTimer,
-			resizeW = 0,
-			resizeTmrFast = 100,
-			resizeTmrSlow = 500,
-			resizeTmrSpd = resizeTmrSlow;
+		// array that corresponds to mediaListeners that holds the cuurrent on/off state
+		var mediaInit = [];
+	
+		// array of media query breakpoints; adjust as needed
+		var mediaBreakpoints = breakpoints;
+		
+		// store the current breakpoint
+		var curr = '';
+		
+		// window resize event timer stuff
+		var resizeTimer;
+		var resizeW = 0;
+		var resizeTmrFast = 100;
+		var resizeTmrSlow = 500;
+		var resizeTmrSpd = resizeTmrSlow;
 		
 		// cross browser window width
 		var winWidth = function() {
@@ -58,8 +58,8 @@
 		// send media to the mediaListeners array
 		var addFunction = function(elm) {
 			
-			var brkpt = elm['breakpoint'],
-				entr = elm['enter'] || undefined;
+			var brkpt = elm['breakpoint'];
+			var entr = elm['enter'] || undefined;
 			
 			// add function to stack
 			mediaListeners.push(elm);
@@ -82,9 +82,9 @@
 				exitArray = [];
 			
 			for (var i = 0; i < mediaListeners.length; i++) {
-				var brkpt = mediaListeners[i]['breakpoint'],
-					entr = mediaListeners[i]['enter'] || undefined,
-					exit = mediaListeners[i]['exit'] || undefined;
+				var brkpt = mediaListeners[i]['breakpoint'];
+				var entr = mediaListeners[i]['enter'] || undefined;
+				var exit = mediaListeners[i]['exit'] || undefined;
 				
 				if (testForCurr(brkpt)) {
 					if (entr !== undefined && !mediaInit[i]) {
@@ -165,7 +165,7 @@
 		
 		// make addFunction public
 		return {
-			'addFunc': function(elm) { addFunction(elm); }
+			addFunc: function(elm) { addFunction(elm); }
 		};
 	
 	};
