@@ -1,6 +1,6 @@
 /*
 	jRespond.js (a simple way to globally manage javascript on responsive websites)
-	version 0.7.1
+	version 0.7.2
 	(c) 2012 Jeremy Fields [jeremy.fields@viget.com]
 	released under the MIT license
 */
@@ -37,19 +37,19 @@
 			// IE
 			if (!window.innerWidth) {
 				
-				 if (!(document.documentElement.clientWidth === 0)) {
-					  
-					  // strict mode
-					  w = document.documentElement.clientWidth;
-				 } else {
-					  
-					  // quirks mode
-					  w = document.body.clientWidth;
-				 }
+				if (!(document.documentElement.clientWidth === 0)) {
+				
+					// strict mode
+					w = document.documentElement.clientWidth;
+				} else {
+					
+					// quirks mode
+					w = document.body.clientWidth;
+				}
 			} else {
-				 
-				 // w3c
-				 w = window.innerWidth;
+				
+				// w3c
+				w = window.innerWidth;
 			}
 			
 			return w;
@@ -100,13 +100,13 @@
 			}
 			
 			// loop through exit functions to call
-			for (var i = 0; i < exitArray.length; i++) {
-				exitArray[i].call();
+			for (var j = 0; j < exitArray.length; j++) {
+				exitArray[j].call();
 			}
 			
 			// then loop through enter functions to call
-			for (var i = 0; i < enterArray.length; i++) {
-				enterArray[i].call();
+			for (var k = 0; k < enterArray.length; k++) {
+				enterArray[k].call();
 			}
 		};
 		
