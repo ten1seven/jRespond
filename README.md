@@ -14,7 +14,7 @@ If your project only needs to support modern browsers I highly recommend checkin
 
 jRespond holds a list of user-defined functions that are fired based on the detected media breakpoint. Entry and exit functions can be defined so transitions between breakpoints can be managed by removing and unbinding some page elements while creating and binding others. jRespond was built to be browser agnostic. It does NOT sniff for media queries in the stylesheets.
 
-After including jRespond.min.js in your project, call jRespond and define media breakpoints:
+After including jRespond.js in your project, call jRespond and define as many or as few media breakpoints as you need for your project:
 
 ``` JavaScript
 // call jRespond and add breakpoints
