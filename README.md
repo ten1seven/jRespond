@@ -1,10 +1,10 @@
 #jRespond
 
-####jRespond is a simple way to globally manage javascript on responsive websites.
+####jRespond is a simple way to globally manage JavaScript on responsive websites.
 
 Responsive websites that require JavaScript functionality for some breakpoints and not for others need some type of system for triggering the correct funcitons at the correct breakpoint and to also be aware of when a browser is resized across breakpoints. Although switching between breakpoints could be seen as an edge case, a few applications for jRespond are:
 
-* Managing functionalty for initial page load: Even if the browser is never resized, jRespond can help manage what javascript functions are triggered when the page loads for a given breakpoint.
+* Managing functionalty for initial page load: Even if the browser is never resized, jRespond can help manage what JavaScript functions are triggered when the page loads for a given breakpoint.
 * Development testing: jRespond makes it much easier to test in-browser.
 * Borderline device widths: Real user browser resizing and device rotation that crosses breakpoints.
 
@@ -16,7 +16,7 @@ jRespond holds a list of user-defined functions that are fired based on the dete
 
 After including jRespond.min.js in your project, call jRespond and define media breakpoints:
 
-``` javascript
+``` JavaScript
 // call jRespond and add breakpoints
 var jRes = jRespond([
 	{
@@ -41,7 +41,7 @@ var jRes = jRespond([
 
 Once running, functions can be registered with jRespond along with a desired breakpoint:
 
-``` javascript
+``` JavaScript
 // register enter and exit functions for a single breakpoint
 jRes.addFunc({
 	breakpoint: 'desktop',
@@ -56,7 +56,7 @@ jRes.addFunc({
 
 Or an array of breakpoints:
 
-``` javascript
+``` JavaScript
 // register enter and exit functions for multiple breakpoints
 jRes.addFunc({
 	breakpoint: ['desktop','laptop'],
