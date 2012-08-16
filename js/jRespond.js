@@ -1,8 +1,8 @@
 /*
-	jRespond.js (a simple way to globally manage javascript on responsive websites)
-	version 0.7.2
-	(c) 2012 Jeremy Fields [jeremy.fields@viget.com]
-	released under the MIT license
+ * jRespond.js (a simple way to globally manage javascript on responsive websites)
+ * version 0.7.2
+ * (c) 2012 Jeremy Fields [jeremy.fields@viget.com]
+ * released under the MIT license
 */
 (function(win,doc,undefined) {
 	
