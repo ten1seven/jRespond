@@ -69,6 +69,21 @@ jRes.addFunc({
 });
 ```
 
+Use '*' to run a function at every breakpoint:
+
+``` JavaScript
+// register enter and exit functions for every breakpoint
+jRes.addFunc({
+	breakpoint: '*',
+	enter: function() {
+		myInitFunc();
+	},
+	exit: function() {
+		myUnInitFunc();
+	}
+});
+```
+
 The breakpoint parameter is required but the enter and exit parameters are optional (of course, at least one is required for something to happen).
 
 ##Performance

@@ -53,21 +53,21 @@
 		jRes.addFunc({
 			breakpoint: 'desktop',
 			enter: function() {
-				console.log('>>> run this for the desktop breakpoint <<<');
+				console.log('>>> run this for the DESKTOP breakpoint <<<');
 				outputStr.innerHTML = 'current breakpoint: desktop';
 			},
 			exit: function() {
-				console.log('<<< destroy this when exiting the desktop breakpoint >>>');
+				console.log('<<< destroy this when exiting the DESKTOP breakpoint >>>');
 			}
 		});
 		
 		jRes.addFunc({
 			breakpoint: ['laptop','tablet'],
 			enter: function() {
-				console.log('>>> run this for the laptop/tablet breakpoint <<<');
+				console.log('>>> run this for the LAPTOP/TABLET breakpoint <<<');
 			},
 			exit: function() {
-				console.log('<<< destroy this when exiting the laptop/tablet breakpoint >>>');
+				console.log('<<< destroy this when exiting the LAPTOP/TABLET breakpoint >>>');
 			}
 		});
 		
@@ -88,11 +88,21 @@
 		jRes.addFunc({
 			breakpoint: 'handheld',
 			enter: function() {
-				console.log('>>> run this for the handheld breakpoint <<<');
+				console.log('>>> run this for the HANDHELD breakpoint <<<');
 				outputStr.innerHTML = 'current breakpoint: handheld';
 			},
 			exit: function() {
-				console.log('<<< destroy this when exiting the handheld breakpoint >>>');
+				console.log('<<< destroy this when exiting the HANDHELD breakpoint >>>');
+			}
+		});
+		
+		jRes.addFunc({
+			breakpoint: '*',
+			enter: function() {
+				console.log('>>> run this when entering EVERY breakpoint <<<');
+			},
+			exit: function() {
+				console.log('<<< run this when exiting EVERY breakpoint >>>');
 			}
 		});
 	</script>

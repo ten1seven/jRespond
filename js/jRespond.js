@@ -1,6 +1,6 @@
 /*
  * jRespond.js (a simple way to globally manage javascript on responsive websites)
- * version 0.7.2
+ * version 0.8.0
  * (c) 2012 Jeremy Fields [jeremy.fields@viget.com]
  * released under the MIT license
  */
@@ -78,15 +78,22 @@
 		// loops through all registered functions and determines if they should be fired
 		var cycleThrough = function() {
 			
-			var enterArray = [],
-				exitArray = [];
+			var enterArray = [];
+			var exitArray = [];
 			
 			for (var i = 0; i < mediaListeners.length; i++) {
 				var brkpt = mediaListeners[i]['breakpoint'];
 				var entr = mediaListeners[i]['enter'] || undefined;
 				var exit = mediaListeners[i]['exit'] || undefined;
 				
-				if (testForCurr(brkpt)) {
+				if (brkpt === '*') {
+					if (entr !== undefined) {
+						enterArray.push(entr);
+					}
+					if (exit !== undefined) {
+						exitArray.push(exit);
+					}
+				} else if (testForCurr(brkpt)) {
 					if (entr !== undefined && !mediaInit[i]) {
 						enterArray.push(entr);
 					}
@@ -128,10 +135,17 @@
 		// takes the breakpoint/s arguement from an object and tests it against the current state
 		var testForCurr = function(elm) {
 			
+			// if there's an array of breakpoints
 			if (typeof elm === 'object') {
 				if (elm.join().indexOf(curr) >= 0) {
 					return true;
 				}
+			
+			// if the string is '*' then run at every breakpoint
+			} else if (elm === '*') {
+				return true;
+			
+			// or if it's a single breakpoint
 			} else if (typeof elm === 'string') {
 				if (curr === elm) {
 					return true;
