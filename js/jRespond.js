@@ -1,6 +1,6 @@
 /*
  * jRespond.js (a simple way to globally manage javascript on responsive websites)
- * version 0.8.0
+ * version 0.8.1
  * (c) 2012 Jeremy Fields [jeremy.fields@viget.com]
  * released under the MIT license
  */
@@ -177,9 +177,10 @@
 		};
 		checkResize();
 		
-		// make addFunction public
+		// return
 		return {
-			addFunc: function(elm) { addFunction(elm); }
+			addFunc: function(elm) { addFunction(elm); },
+			getBreakpoint: function() { return curr; }
 		};
 	
 	};

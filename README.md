@@ -84,6 +84,13 @@ jRes.addFunc({
 });
 ```
 
+Ask jRespond what the current breakpoint is at any time:
+
+``` JavaScript
+// get the current breakpoint
+jRes.getBreakpoint();
+```
+
 The breakpoint parameter is required but the enter and exit parameters are optional (of course, at least one is required for something to happen).
 
 ##Performance
