@@ -75,7 +75,7 @@
 			}
 		};
 		
-		// loops through all registered functions and determines if they should be fired
+		// loops through all registered functions and determines what should be fired
 		var cycleThrough = function() {
 			
 			var enterArray = [];
