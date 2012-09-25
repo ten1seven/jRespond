@@ -77,7 +77,7 @@
 
 		// loops through all registered functions and determines what should be fired
 		var cycleThrough = function() {
-			console.log('cycleThrough');
+			
 			var enterArray = [];
 			var exitArray = [];
 
