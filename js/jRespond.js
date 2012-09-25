@@ -13,7 +13,7 @@
 		// array for registered functions
 		var mediaListeners = [];
 		
-		// array that corresponds to mediaListeners that holds the cuurrent on/off state
+		// array that corresponds to mediaListeners and holds the current on/off state
 		var mediaInit = [];
 	
 		// array of media query breakpoints; adjust as needed
