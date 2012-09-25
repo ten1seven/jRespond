@@ -128,6 +128,9 @@
 					
 					// run the loop
 					cycleThrough();
+					
+					// exit out of loop
+					break;
 				}
 			}
 		};
