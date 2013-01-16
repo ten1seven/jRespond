@@ -1,9 +1,6 @@
-/*
- * jRespond.js (a simple way to globally manage javascript on responsive websites)
- * version 0.8.3
- * (c) 2012 Jeremy Fields [jeremy.fields@viget.com]
- * released under the MIT license
- */
+/*! jRespond.js v 0.9 | Author: Jeremy Fields [jeremy.fields@viget.com], 2013 | License: MIT */
+/*! viewportSize | Author: Tyson Matanich, 2013 | License: MIT */
+
 (function(win,doc,undefined) {
 
 	'use strict';
@@ -28,32 +25,6 @@
 		var resizeTmrFast = 100;
 		var resizeTmrSlow = 500;
 		var resizeTmrSpd = resizeTmrSlow;
-
-		// cross browser window width
-		var winWidth = function() {
-
-			var w = 0;
-
-			// IE
-			if (!window.innerWidth) {
-
-				if (!(document.documentElement.clientWidth === 0)) {
-
-					// strict mode
-					w = document.documentElement.clientWidth;
-				} else {
-
-					// quirks mode
-					w = document.body.clientWidth;
-				}
-			} else {
-
-				// w3c
-				w = window.innerWidth;
-			}
-
-			return w;
-		};
 
 		// send media to the mediaListeners array
 		var addFunction = function(elm) {
@@ -119,7 +90,7 @@
 
 		// checks for the correct breakpoint against the mediaBreakpoints list
 		var returnBreakpoint = function(width) {
-
+			
 			var foundBrkpt = false;
 
 			// look for existing breakpoint based on width
@@ -175,7 +146,7 @@
 		var checkResize = function() {
 
 			// get current width
-			var w = winWidth();
+			var w = viewportSize.getWidth();
 
 			// if there is a change speed up the timer and fire the returnBreakpoint function
 			if (w !== resizeW) {
@@ -204,3 +175,7 @@
 	};
 
 }(this,this.document));
+
+
+/*! viewportSize | Author: Tyson Matanich, 2013 | License: MIT */
+(function(n){n.viewportSize={},n.viewportSize.getHeight=function(){return t("Height")},n.viewportSize.getWidth=function(){return t("Width")};var t=function(t){var f,o=t.toLowerCase(),e=n.document,i=e.documentElement,r,u;return n["inner"+t]===undefined?f=i["client"+t]:n["inner"+t]!=i["client"+t]?(r=e.createElement("body"),r.id="vpw-test-b",r.style.cssText="overflow:scroll",u=e.createElement("div"),u.id="vpw-test-d",u.style.cssText="position:absolute;top:-1000px",u.innerHTML="<style>@media("+o+":"+i["client"+t]+"px){body#vpw-test-b div#vpw-test-d{"+o+":7px!important}}<\/style>",r.appendChild(u),i.insertBefore(r,e.head),f=u["offset"+t]==7?i["client"+t]:n["inner"+t],i.removeChild(r)):f=n["inner"+t],f}})(this);

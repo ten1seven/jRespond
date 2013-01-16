@@ -12,14 +12,31 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
 	<!-- tell mobile browsers to scale -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<title>jRespond Test Page</title>
 	
+	<!-- css -->
+	<style>
+		body {
+			background-color: #fff;
+			margin: 0;
+		}
+		#output {
+			font-size: 24px;
+			margin: 100px 0;
+			text-align: center;
+		}
+	</style>
+	
 </head>
 <body>
-
-	<p id="output"></p>
+	
+	<div class="wrapper">
+		
+		<p id="output"></p>
+		
+	</div>
 
 	<!-- Javascript -->
 	<script src="js/util.js"></script>
@@ -54,7 +71,7 @@
 			breakpoint: 'desktop',
 			enter: function() {
 				console.log('>>> run this for the DESKTOP breakpoint <<<');
-				outputStr.innerHTML = 'current breakpoint: desktop';
+				outputStr.innerHTML = 'Current breakpoint: desktop';
 			},
 			exit: function() {
 				console.log('<<< destroy this when exiting the DESKTOP breakpoint >>>');
@@ -74,14 +91,14 @@
 		jRes.addFunc({
 			breakpoint: 'laptop',
 			enter: function() {
-				outputStr.innerHTML = 'current breakpoint: laptop';
+				outputStr.innerHTML = 'Current breakpoint: laptop';
 			}
 		});
 		
 		jRes.addFunc({
 			breakpoint: 'tablet',
 			enter: function() {
-				outputStr.innerHTML = 'current breakpoint: tablet';
+				outputStr.innerHTML = 'Current breakpoint: tablet';
 			}
 		});
 		
@@ -89,7 +106,7 @@
 			breakpoint: 'handheld',
 			enter: function() {
 				console.log('>>> run this for the HANDHELD breakpoint <<<');
-				outputStr.innerHTML = 'current breakpoint: handheld';
+				outputStr.innerHTML = 'Current breakpoint: handheld';
 			},
 			exit: function() {
 				console.log('<<< destroy this when exiting the HANDHELD breakpoint >>>');
