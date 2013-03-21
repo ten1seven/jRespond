@@ -18,6 +18,9 @@
 		// store the current breakpoint
 		var curr = '';
 
+		// the previous breakpoint
+		var prev = '';
+
 		// window resize event timer stuff
 		var resizeTimer;
 		var resizeW = 0;
@@ -65,7 +68,7 @@
 
 			if (testForCurr(brkpt)) {
 				if (entr !== undefined) {
-					entr.call();
+					entr.call(null, {entering : curr, exiting : prev});
 				}
 				mediaInit[(mediaListeners.length - 1)] = true;
 			}
@@ -102,14 +105,19 @@
 				}
 			}
 
+			var eventObject = {
+				entering : curr,
+				exiting : prev
+			};
+
 			// loop through exit functions to call
 			for (var j = 0; j < exitArray.length; j++) {
-				exitArray[j].call();
+				exitArray[j].call(null, eventObject);
 			}
 
 			// then loop through enter functions to call
 			for (var k = 0; k < enterArray.length; k++) {
-				enterArray[k].call();
+				enterArray[k].call(null, eventObject);
 			}
 		};
 
@@ -131,6 +139,7 @@
 
 			// if breakpoint is found and it's not the current one
 			if (foundBrkpt && curr !== mediaBreakpoints[i]['label']) {
+				prev = curr;
 				curr = mediaBreakpoints[i]['label'];
 
 				// run the loop
