@@ -1,4 +1,4 @@
-/*! jRespond.js v 0.9 | Author: Jeremy Fields [jeremy.fields@viget.com], 2013 | License: MIT */
+/*! jRespond.js v 0.10 | Author: Jeremy Fields [jeremy.fields@viget.com], 2013 | License: MIT */
 
 (function(win,doc,undefined) {
 
@@ -31,7 +31,7 @@
 			var w = 0;
 
 			// IE
-			if (!window.innerWidth) {
+			if (typeof( window.innerWidth ) != 'number') {
 
 				if (!(document.documentElement.clientWidth === 0)) {
 
