@@ -69,6 +69,39 @@ jRes.addFunc({
 });
 ```
 
+Or an array of breakpoints and functions:
+
+``` JavaScript
+// register enter and exit functions for multiple breakpoints and functions
+jRes.addFunc([
+	{
+		breakpoint: 'desktop',
+		enter: function() {
+			myInitFuncDesktop();
+		},
+		exit: function() {
+			myUnInitFuncDesktop();
+		}
+	},{
+		breakpoint: 'laptop',
+		enter: function() {
+			myInitFuncLaptop();
+		},
+		exit: function() {
+			myUnInitFuncLaptop();
+		}
+	},{
+		breakpoint: 'tablet',
+		enter: function() {
+			myInitFuncTablet();
+		},
+		exit: function() {
+			myUnInitFuncTablet();
+		}
+	}
+]);
+```
+
 Use '*' to run a function at every breakpoint:
 
 ``` JavaScript

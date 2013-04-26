@@ -54,8 +54,21 @@
 			return w;
 		};
 
-		// send media to the mediaListeners array
+		// determine input type
 		var addFunction = function(elm) {
+
+			if (elm.length === undefined) {
+				addToStack(elm);
+			} else {
+				for (var i = 0; i < elm.length; i++) {
+					addToStack(elm[i]);
+				}
+			}
+
+		};
+
+		// send media to the mediaListeners array
+		var addToStack = function(elm) {
 
 			var brkpt = elm['breakpoint'];
 			var entr = elm['enter'] || undefined;
@@ -72,6 +85,7 @@
 				}
 				mediaInit[(mediaListeners.length - 1)] = true;
 			}
+
 		};
 
 		// loops through all registered functions and determines what should be fired
