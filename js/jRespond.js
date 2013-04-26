@@ -64,7 +64,6 @@
 					addToStack(elm[i]);
 				}
 			}
-
 		};
 
 		// send media to the mediaListeners array
