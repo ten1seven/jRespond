@@ -126,6 +126,55 @@ jRes.getBreakpoint();
 
 The breakpoint parameter is required but the enter and exit parameters are optional (of course, at least one is required for something to happen).
 
+##Use as a module
+You can also use jRespond as a browser or Node module.
+###AMD module
+```javascript
+require(['jRespond'], function (jRes) {
+	var mediaQueries = jRes([
+		{
+			label: 'tablet',
+			enter: 768,
+			exit: 979
+		}
+	]);
+
+	mediaQueries.addFunc({
+		breakpoint: 'tablet',
+		enter: function() {
+			myInitFunc();
+		},
+		exit: function() {
+			myUnInitFunc();
+		}
+	});
+});
+```
+###CommonJS syntax
+```javascript
+require(['require', 'jRespond'], function (require) {
+	var jRes = require('jRespond');
+
+	var mediaQueries = jRes([
+		{
+			label: 'tablet',
+			enter: 768,
+			exit: 979
+		}
+	]);
+
+	mediaQueries.addFunc({
+		breakpoint: 'tablet',
+		enter: function() {
+			myInitFunc();
+		},
+		exit: function() {
+			myUnInitFunc();
+		}
+	});
+});
+```
+
 ##Performance
 
 jRespond is 1.3kb minified and only polls for the browser width every 500ms. If it detects a change the polling speed is increased to 100ms only until the browser width stops changing.

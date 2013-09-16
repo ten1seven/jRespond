@@ -1,10 +1,26 @@
 /*! jRespond.js v 0.10 | Author: Jeremy Fields [jeremy.fields@viget.com], 2013 | License: MIT */
 
-(function(win,doc,undefined) {
+// Universal Module Definition
+;(function (window, name, fn) {
+	// Node module pattern
+    if (typeof module === "object" && module && typeof module.exports === "object") {
+        module.exports = fn;
+    } else {
+		// browser
+        window[name] = fn;
+
+        // AMD definition
+        if (typeof define === "function" && define.amd) {
+            define(name, [], function (module) {
+                return fn;
+            });
+        }
+    }
+}(this, 'jRespond', function(win,doc,undefined) {
 
 	'use strict';
 
-	win.jRespond = function(breakpoints) {
+	return function(breakpoints) {
 
 		// array for registered functions
 		var mediaListeners = [];
@@ -218,4 +234,4 @@
 
 	};
 
-}(this,this.document));
+}(this,this.document)));
