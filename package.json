@@ -1,0 +1,19 @@
+{
+  "author": "Jeremy Fields",
+  "name": "jRespond",
+  "description": "jRespond is a simple way to globally manage javascript on responsive websites.",
+  "version": "0.0.1",
+  "repository": {
+    "url": "git@github.com:thejsj/jRespond.git"
+  },
+  "main": "./js/jRespond.js",
+  "keywords": [
+    "responsive",
+    "media",
+    "queries"
+  ],
+  "dependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
