@@ -1,0 +1,23 @@
+{
+  "name": "jRespond",
+  "version": "1.0.0",
+  "homepage": "https://github.com/ten1seven/jRespond",
+  "authors": [
+    "Jeremy Fields <jeremy.fields@viget.com>"
+  ],
+  "description": "jRespond is a simple way to globally manage javascript on responsive websites.",
+  "main": "js/jRespond.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "responsive",
+    "media",
+    "queries"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ten1seven/jRespond.git"
+  }
+}
