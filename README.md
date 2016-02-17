@@ -2,7 +2,7 @@
 
 ####jRespond is a simple way to globally manage JavaScript on responsive websites.
 
-Responsive websites that require JavaScript functionality for some breakpoints and not for others need some type of system for triggering the correct funcitons at the correct breakpoint and to also be aware of when a browser is resized across breakpoints. Although switching between breakpoints could be seen as an edge case, a few applications for jRespond are:
+Responsive websites that require JavaScript functionality for some breakpoints and not for others need some type of system for triggering the correct functions at the correct breakpoint and to also be aware of when a browser is resized across breakpoints. Although switching between breakpoints could be seen as an edge case, a few applications for jRespond are:
 
 * Managing functionality for initial page load: Even if the browser is never resized, jRespond can help manage what JavaScript functions are triggered when the page loads for a given breakpoint.
 * Development testing: jRespond makes it much easier to test in-browser.
