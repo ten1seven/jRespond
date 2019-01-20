@@ -4,6 +4,8 @@
 
 _jRespond is no longer supported. It was written to fill the gap before [`window.matchMedia()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) was well supported. `window.matchMedia()` now enjoys support across [all modern browsers](https://caniuse.com/#feat=matchmedia), rendering jRespond obsolete._
 
+---
+
 #### jRespond is a simple way to globally manage JavaScript on responsive websites.
 
 Responsive websites that require JavaScript functionality for some breakpoints and not for others need some type of system for triggering the correct functions at the correct breakpoint and to also be aware of when a browser is resized across breakpoints. Although switching between breakpoints could be seen as an edge case, a few applications for jRespond are:
