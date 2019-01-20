@@ -1,4 +1,8 @@
-# jRespond
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+# DEPRECATED
+
+_jRespond is no longer supported. It was written to fill the gap before [`window.matchMedia()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) was well supported. `window.matchMedia()` now enjoys support across [all modern browsers](https://caniuse.com/#feat=matchmedia), rendering jRespond obsolete._
 
 #### jRespond is a simple way to globally manage JavaScript on responsive websites.
 
