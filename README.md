@@ -1,6 +1,6 @@
-#jRespond
+# jRespond
 
-####jRespond is a simple way to globally manage JavaScript on responsive websites.
+#### jRespond is a simple way to globally manage JavaScript on responsive websites.
 
 Responsive websites that require JavaScript functionality for some breakpoints and not for others need some type of system for triggering the correct functions at the correct breakpoint and to also be aware of when a browser is resized across breakpoints. Although switching between breakpoints could be seen as an edge case, a few applications for jRespond are:
 
@@ -10,7 +10,7 @@ Responsive websites that require JavaScript functionality for some breakpoints a
 
 If your project only needs to support modern browsers I highly recommend checking out Rob Tarr's <a href="https://github.com/sparkbox/mediaCheck">mediaCheck</a> which uses the <code>matchMedia</code> method. But if you're using <a href="https://github.com/scottjehl/Respond">respond.js</a> as a polyfill to ensure that your site responds on older browsers, jRespond is worth checking out.
 
-##How does it work?
+## How does it work?
 
 jRespond is a script that holds a list of user-defined functions that are fired based on the browser's width compared to a list of customizable breakpoints. Entry and exit functions can be defined so transitions between breakpoints can be managed by removing and unbinding some page elements while creating and binding others. jRespond was built to be independent and browser agnostic. It does NOT sniff for media queries in the stylesheets.
 
@@ -126,9 +126,12 @@ jRes.getBreakpoint();
 
 The breakpoint parameter is required but the enter and exit parameters are optional (of course, at least one is required for something to happen).
 
-##Use as a module
+## Use as a module
+
 You can also use jRespond as a browser or Node module.
-###AMD module
+
+### AMD module
+
 ```javascript
 require(['jRespond'], function (jRes) {
 	var mediaQueries = jRes([
@@ -150,7 +153,9 @@ require(['jRespond'], function (jRes) {
 	});
 });
 ```
-###CommonJS syntax
+
+### CommonJS syntax
+
 ```javascript
 require(['require', 'jRespond'], function (require) {
 	var jRes = require('jRespond');
@@ -175,18 +180,18 @@ require(['require', 'jRespond'], function (require) {
 });
 ```
 
-##Performance
+## Performance
 
 jRespond is 1.3kb minified and only polls for the browser width every 500ms. If it detects a change the polling speed is increased to 100ms only until the browser width stops changing.
 
-##Browser Support
+## Browser Support
 
 IE 6+, Safari 5+, Firefox 3+, Chrome 1+
 
-##Dependencies
+## Dependencies
 
 None.
 
-##Credits
+## Credits
 
 Thanks to <a href="http://seesparkbox.com/foundry/author/rob_tarr">Rob Tarr</a> for inspiring the function registration pattern and <a href="http://markupboy.com/">Markup Boy</a> for helping me with my JavaScript failings.
